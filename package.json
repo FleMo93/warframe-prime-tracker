@@ -1,0 +1,33 @@
+{
+  "name": "warframe-prime-tracker",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "serve": "webpack-dev-server",
+    "build": "bash ./build.sh"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "core-js": "^3.6.5",
+    "knockout": "^3.5.1",
+    "warframe-items": "^1.891.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-typescript": "^7.9.0",
+    "@types/knockout": "^3.4.67",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.5.3",
+    "html-loader": "^1.1.0",
+    "style-loader": "^1.2.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  }
+}

@@ -1,0 +1,21 @@
+<div class="componentEntry">
+  <label class="headline" data-bind="text: vm.name"></label>
+  <span class="imgContainer">
+    <img data-bind="attr: { src: './img/warframe-img/' + vm.imgUrl }">
+  </span>
+  <span>
+    Items needed: <label data-bind="text: $data.vm.itemCount"></label>
+  </span>
+  <span>
+    <label for="1">Obtained:</label>
+    <input id="1" type="checkbox" data-bind="checked: vm.ontained">
+  </span>
+
+  <!-- ko if: vm.drops().length > 0 -->
+    <extendcontent params="show: vm.showDrops, headline: 'Drop locations:'">
+      <!-- ko foreach: $parent.vm.drops -->
+        <relic params="vm: $data"></relic>
+      <!-- /ko -->
+    </extendcontent>
+  <!-- /ko -->
+</div>

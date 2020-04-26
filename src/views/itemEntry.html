@@ -1,0 +1,22 @@
+<div class="itemEntry">
+  <img data-bind="attr: { src: './img/warframe-img/' + vm.imgUrl }">
+  <span class="data">
+    <label class="headline" data-bind="text: vm.name"></label>
+    <span>
+      <label>Obtainable:</label><input type="checkbox" data-bind="checked: vm.obtainable">
+    </span>
+    </br>
+    <span>
+      <label for="1">Obtained:</label>
+      <input id="1" type="checkbox" data-bind="checked: vm.ontained">
+    </span>
+
+    <extendcontent params="show: vm.showComponents, headline: 'Components'">
+      <span class="components">
+        <!-- ko foreach: $parent.vm.components -->
+          <componententry params="vm: $data"></componententry>
+        <!-- /ko -->
+      </span>
+    </extendcontent>
+  </span>
+</div>

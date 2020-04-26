@@ -1,0 +1,16 @@
+<div class="extendContent">
+  <span class="head">
+    <!-- ko if: headline -->
+      <label data-bind="text: headline"></label>
+    <!-- /ko -->
+    <div class="extendButton" data-bind="click: toggle">
+      <!-- ko if: show() === true -->-<!-- /ko -->
+      <!-- ko if: show() === false -->+<!-- /ko -->
+    </div>
+  </span>
+  <div class="content">
+    <!-- ko if: show() -->
+      <!-- ko template: { nodes: $componentTemplateNodes } --><!-- /ko -->
+    <!-- /ko -->
+  </div>
+</div>

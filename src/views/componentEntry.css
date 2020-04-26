@@ -1,0 +1,23 @@
+.componentEntry {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.componentEntry > .imgContainer {
+  width: 64px;
+  height: 64px;
+  position: relative;
+}
+
+.componentEntry > .imgContainer > img {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 64px;
+}
+
+.componentEntry>.headline {
+  font-weight: bolder;
+}

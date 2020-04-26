@@ -1,0 +1,17 @@
+.extendContent > .head {
+  display: block;
+}
+
+.extendContent .extendButton {
+  display: inline-block;
+  border: 1px solid black;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  cursor: pointer;
+  padding: 1px;
+}
+
+.extendContent > .content {
+  margin-left: 10px;
+}

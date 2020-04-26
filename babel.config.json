@@ -1,0 +1,22 @@
+{
+  "presets": [
+    "@babel/typescript",
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "last 1 version", 
+            "ie >= 11"
+          ]
+        },
+        "useBuiltIns": "usage",
+        "corejs": "3.0.0",
+        "debug": true
+      }
+    ]
+  ],
+  "plugins": [
+    "@babel/plugin-proposal-class-properties"
+  ]
+}
