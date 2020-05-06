@@ -2,8 +2,10 @@ import { components, pureComputed, observable, observableArray, ObservableArray,
 import { Drop } from 'warframe-items';
 import { DropEntry } from './RelicEntry'
 import { Component } from 'src/primeData';
+import { ItemStorageService } from 'src/services/ItemStorageService';
+import { Obtainable } from './Obtainable';
 
-export class ComponentEntry {
+export class ComponentEntry extends Obtainable {
   private component: Component;
 
   public name = pureComputed({ read: () => this.component.name });
@@ -11,13 +13,14 @@ export class ComponentEntry {
   public drops: ObservableArrayFunctions<Drop> = observableArray();
   public showDrops = observable(false);
   public itemCount = pureComputed({ read: () => this.component.itemCount });
-  public obtained = observable(false);
   public imgUrl = ``;
 
-  constructor(component: Component) {
+  constructor(component: Component, itemStorageService: ItemStorageService) {
+    super(component.uniqueName, itemStorageService);
+
     this.component = component;
     this.imgUrl = component.imageName;
-    if(!this.component.drops) { return; }
+    if (!this.component.drops) { return; }
     this.drops(this.component.drops.map((drop) => new DropEntry(drop)));
   }
 }

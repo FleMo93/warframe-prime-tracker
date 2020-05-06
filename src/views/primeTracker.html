@@ -1,5 +1,13 @@
+<h1>Warframe</h1>
+<h2>Prime Tracker</h2>
+
+<searchbar params="vm: vm.searchBar"></searchbar>
+
 <div class="primeTracker">
   <!-- ko foreach: vm.itemEntries -->
-    <itementry params="vm: $data"></itementry>
+    <!-- ko component: {
+      name: "itementry",
+      params: { vm: $data }
+    } --><!-- /ko -->
   <!-- /ko -->
 </div>

@@ -1,14 +1,16 @@
+<!-- ko if: vm.show -->
 <div class="itemEntry">
   <img data-bind="attr: { src: './img/warframe-img/' + vm.imgUrl }">
   <span class="data">
     <label class="headline" data-bind="text: vm.name"></label>
     <span>
-      <label>Obtainable:</label><input type="checkbox" data-bind="checked: vm.obtainable">
+      <label>Obtainable:</label>
+      <input type="checkbox" data-bind="checked: vm.obtainable" disabled>
     </span>
     </br>
     <span>
       <label for="1">Obtained:</label>
-      <input id="1" type="checkbox" data-bind="checked: vm.ontained">
+      <input id="1" type="checkbox" data-bind="checked: vm.obtained">
     </span>
 
     <extendcontent params="show: vm.showComponents, headline: 'Components'">
@@ -20,3 +22,4 @@
     </extendcontent>
   </span>
 </div>
+<!-- /ko -->

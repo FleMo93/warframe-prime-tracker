@@ -35,3 +35,15 @@
 .itemEntry .components > *:last-child {
   border-right-width: 1px;
 }
+
+/* .itemEntry {
+  border: 1px solid;
+  border-left-width: 1px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 0px;
+}
+
+*:last-child > .itemEntry {
+  border-bottom-width: 1px;
+} */
