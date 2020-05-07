@@ -5,7 +5,7 @@
   "main": "src/index.ts",
   "scripts": {
     "serve": "webpack-dev-server",
-    "lint": "eslint src/**",
+    "lint": "eslint 'src/**'",
     "checkTyping": "tsc --noEmit",
     "build": "bash ./build.sh"
   },
