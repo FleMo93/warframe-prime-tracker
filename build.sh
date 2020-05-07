@@ -8,7 +8,7 @@ node ./calculateData.js
 
 ./node_modules/.bin/webpack --env.production
 
-cp -r public/* dist/
+cp -vr public/* dist/
 mkdir -p ./public/img/warframe-img
 cp ./warframe-items/data/img/* ./public/img/warframe-img/
 
@@ -21,5 +21,10 @@ for filename in ./dist/*.js; do
   sed -i "1i ${JS_HASH}" "$filename"
 done
 
+echo " "
+echo "dist conent:"
 ( cd dist && find . )
+
+echo " "
+echo "warframe-items content:"
 ( cd warframe-items && ls )
