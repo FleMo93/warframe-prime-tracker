@@ -28,11 +28,6 @@ jobs:
     - name: Lint
       run: npm run lint
 
-    - name: prep pages
-      run: |
-        mkdir -p ./pages
-        mv dist ./pages/
-
     - name: Deploy to GitHub Pages
       uses: JamesIves/github-pages-deploy-action@3.4.9
       with:
