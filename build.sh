@@ -22,3 +22,4 @@ for filename in ./dist/*.js; do
 done
 
 ( cd dist && find . )
+( cd warframe-items && ls )
