@@ -1,4 +1,6 @@
 .vscode/launch.json
 node_modules
 public/data.json
-img/warframe-img
+public/img/warframe-img
+src/primeData.js
+dist

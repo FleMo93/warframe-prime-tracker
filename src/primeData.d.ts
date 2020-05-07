@@ -4,7 +4,6 @@ export interface Relic {
 
 export interface Component {
   name: string;
-  description: string;
   itemCount: string;
   imageName: string;
   uniqueName: string;
@@ -18,3 +17,5 @@ export interface Item {
   uniqueName: string;
   components: Array<Component>;
 }
+
+export const data: Array<Item>;

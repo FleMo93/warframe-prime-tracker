@@ -18,21 +18,35 @@ const items = new Items({
         .filter((drop) => drop.location.toLowerCase().indexOf('intact') > -1)
         .map((drop) => {
           const res = relics[drop.location];
-          return res;
+          return {
+            name: res.name.substring(0, res.name.length - 'intact'.length - 1)
+          }; //relics
         })
         .filter((drop) => drop !== undefined);
 
-      return com;
+      return {
+        name: com.name,
+        itemCount: com.itemCount,
+        imageName: com.imageName,
+        uniqueName: com.uniqueName,
+        drops: com.drops
+      }; // components
     })
       .filter((com) => com)
 
     item.components = newComps;
     item.obtainable = newComps.some((comp) => comp.drops.some((relics) => relics.drops && relics.drops.length > 0));
 
-    return item;
+    return {
+      name: item.name,
+      obtainable: item.obtainable,
+      imageName: item.imageName,
+      uniqueName: item.uniqueName,
+      components: item.components
+    }; // items
   });
 
 
 fs.writeFileSync('./src/primeData.js',
-  `export default ${JSON.stringify(items)}`
+  `export const data = ${JSON.stringify(items)}`
 );

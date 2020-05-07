@@ -4,6 +4,8 @@ npm ci
 rm -rf dist
 mkdir -p dist
 
+node ./calculateData.js
+
 ./node_modules/.bin/webpack --env.production
 
 cp -r public/* dist/
