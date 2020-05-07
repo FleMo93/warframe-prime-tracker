@@ -37,7 +37,7 @@ const items = new Items({
         itemCount: com.itemCount,
         imageName: com.imageName,
         uniqueName: com.uniqueName,
-        drops: com.drops
+        drops: com.drops,
       }; // components
     })
       .filter((com) => com)
@@ -52,10 +52,11 @@ const items = new Items({
 
     return {
       name: item.name,
+      category: item.category,
       obtainable: item.obtainable,
       imageName: item.imageName,
       uniqueName: item.uniqueName,
-      components: item.components
+      components: item.components,
     }; // items
   });
 

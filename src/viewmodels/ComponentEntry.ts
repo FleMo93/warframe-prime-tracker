@@ -9,7 +9,6 @@ export class ComponentEntry extends Obtainable {
   private component: Component;
 
   public name = pureComputed({ read: () => this.component.name });
-  public description = pureComputed({ read: () => this.component.description });
   public drops: ObservableArrayFunctions<Drop> = observableArray();
   public showDrops = observable(false);
   public itemCount = pureComputed({ read: () => this.component.itemCount });

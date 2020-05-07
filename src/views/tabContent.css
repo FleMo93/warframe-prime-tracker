@@ -1,0 +1,44 @@
+.tabContent {
+  position: absolute;
+  top: 28px;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.tabHeader {
+  height: 28px;
+  padding: 8px;
+  float: left;
+  border: 1px solid;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  box-sizing: border-box;
+  line-height: 12px;
+  pointer-events: all;
+}
+
+.tabContainer > *:last-child .tabHeader {
+  border-right-width: 1px;
+}
+
+.hiddenTabContent {
+  display: none;
+}
+
+.tabHeader.activeHeaderTab {
+  background-color: #ABB2B9;
+}
+
+.tabHeader.activeHeaderTab > label {
+  color: black;
+
+}
+
+.tabHeader:hover {
+  background-color: white;
+}
+
+.tabHeader:hover > label {
+  color: black;
+}

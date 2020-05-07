@@ -6,16 +6,22 @@
   flex-direction: column;
 }
 
-.primeTracker > .itemListContainer {
+.primeTracker > .itemTabContainer {
   overflow: hidden;
   position: relative;
   flex: 1;
 }
 
-.primeTracker > .itemListContainer > .itemList {
+.primeTracker .itemListContainer {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+}
+
+.primeTracker .itemListContainer > .itemList {
   overflow-y: scroll;
   position: absolute;
-  top: 8px;
+  top: 0;
   left: 0;
   bottom: 8px;
   right: 0;
@@ -26,11 +32,11 @@
   border-left: 1px solid;
 }
 
-.primeTracker > .itemListContainer > .itemList > * {
+.primeTracker .itemListContainer > .itemList > * {
   border-top: 1px solid;
 }
 
-.primeTracker > .itemListContainer > .itemList > *:first-child {
+.primeTracker .itemListContainer > .itemList > *:first-child {
   border-top-width: 0px;
 }
 

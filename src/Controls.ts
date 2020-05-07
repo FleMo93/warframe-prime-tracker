@@ -3,6 +3,7 @@ import { registerControl as registerPrimeTracker } from './viewmodels/PrimeTrack
 import { registerControl as registerComponent } from './viewmodels/ComponentEntry';
 import { registerControl as registerDrop } from './viewmodels/RelicEntry';
 import { registerControl as registerSearchBar } from './viewmodels/SearchBar';
+import { registerControl as registerTabContainer } from './viewmodels/TabContainer';
 import { registerControl } from './viewmodels/ExtendContent';
 
 export const registerControls = (): void => {
@@ -12,4 +13,5 @@ export const registerControls = (): void => {
   registerControl('extendcontent');
   registerDrop('relic');
   registerSearchBar('searchbar');
+  registerTabContainer('tabcontainer', 'tabcontent');
 }

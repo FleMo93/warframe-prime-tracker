@@ -12,6 +12,7 @@ export interface Component {
 
 export interface Item {
   name: string;
+  category: string;
   obtainable: boolean;
   imageName: string;
   uniqueName: string;

@@ -1,21 +1,45 @@
-import { components, ObservableArrayFunctions, observableArray } from 'knockout';
+import { components, observableArray, ObservableArray, observable } from 'knockout';
 import { ItemEntry } from './ItemEntry';
 import { Item } from 'src/primeData';
 import { ItemStorageService } from 'src/services/ItemStorageService';
 import { SearchBar } from './SearchBar';
 import { ItemUIService } from 'src/services/ItemUIService';
+import { ItemCategory } from 'src/interfaces/ItemCategory';
 
 export class PrimeTracker {
   private itemStorageService: ItemStorageService;
-  public itemEntries: ObservableArrayFunctions<ItemEntry> = observableArray();
+  public itemCategories: ObservableArray<ItemCategory> = observableArray();
   public searchBar: SearchBar;
 
   constructor(items: Array<Item>, itemStorageService: ItemStorageService, itemUIService: ItemUIService) {
     this.itemStorageService = itemStorageService;
     this.searchBar = new SearchBar(itemUIService);
+    this.itemCategories = observableArray();
+
+    const allGroup: ItemCategory = {
+      name: 'All',
+      items: observableArray(),
+      active: observable(true)
+    };
+
+    this.itemCategories.push(allGroup);
 
     for (const item of items) {
-      this.itemEntries.push(new ItemEntry(item, itemStorageService, itemUIService));
+      let group = this.itemCategories().find((cat) => cat.name === item.category);
+
+      if(!group) {
+        group = {
+          name: item.category,
+          items: observableArray(),
+          active: observable(false)
+        };
+
+        this.itemCategories.push(group);
+      }
+
+      const itemEntry = new ItemEntry(item, itemStorageService, itemUIService);
+      allGroup.items.push(itemEntry);
+      group.items.push(itemEntry);
     }
   }
 
