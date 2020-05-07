@@ -1,10 +1,18 @@
 const fs = require('fs');
 const Items = require('warframe-items');
 
+function shortRelicName (name) {
+  return name.substring(0, name.length - 'intact'.length - 1);
+}
+
 const relics = new Items({
   category: ['Relics']
 })
   .filter((relics) => relics.name.toLowerCase().indexOf('intact') > -1)
+  .map((relic) => {
+    relic.name = shortRelicName(relic.name)
+    return relic;
+  })
   .reduce((a, b) => (a[b.name] = b, a), {});
 
 const items = new Items({
@@ -17,9 +25,9 @@ const items = new Items({
       com.drops = com.drops
         .filter((drop) => drop.location.toLowerCase().indexOf('intact') > -1)
         .map((drop) => {
-          const res = relics[drop.location];
+          const res = relics[shortRelicName(drop.location)];
           return {
-            name: res.name.substring(0, res.name.length - 'intact'.length - 1)
+            name: res.name
           }; //relics
         })
         .filter((drop) => drop !== undefined);
@@ -35,7 +43,12 @@ const items = new Items({
       .filter((com) => com)
 
     item.components = newComps;
-    item.obtainable = newComps.some((comp) => comp.drops.some((relics) => relics.drops && relics.drops.length > 0));
+    item.obtainable = newComps.some((comp) => {
+      return comp.drops.some((comRelics) => {
+        const relic = relics[comRelics.name];
+        return relic && relic.drops && relic.drops.length;
+      })
+    });
 
     return {
       name: item.name,
