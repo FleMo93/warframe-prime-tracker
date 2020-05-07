@@ -57,6 +57,8 @@ module.exports = (production) => {
       watchContentBase: true,
       port: 8081,
       hot: true,
+      contentBasePublicPath: '/warframe-prime-tracker/',
+      publicPath: '/warframe-prime-tracker/'
       // inline: false // enable for IE11 support, but disables hot-reload
     }
   }

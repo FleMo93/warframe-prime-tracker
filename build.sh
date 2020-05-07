@@ -1,6 +1,6 @@
 set -e
 
-npm ci
+# npm ci
 rm -rf dist
 mkdir -p dist
 
