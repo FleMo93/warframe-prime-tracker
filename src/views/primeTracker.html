@@ -1,13 +1,21 @@
-<h1>Warframe</h1>
-<h2>Prime Tracker</h2>
-
-<searchbar params="vm: vm.searchBar"></searchbar>
-
 <div class="primeTracker">
-  <!-- ko foreach: vm.itemEntries -->
-    <!-- ko component: {
-      name: "itementry",
-      params: { vm: $data }
-    } --><!-- /ko -->
-  <!-- /ko -->
+  <h1>Warframe - Prime Tracker</h1>
+
+  <searchbar params="vm: vm.searchBar"></searchbar>
+
+  <span class="itemListContainer">
+    <span class="itemList">
+      <!-- ko foreach: vm.itemEntries -->
+        <!-- ko component: {
+          name: "itementry",
+          params: { vm: $data }
+        } --><!-- /ko -->
+      <!-- /ko -->
+    </span>
+  </span>
+
+  <span class="footer">
+    <button data-bind="click: vm.export">Export</button>
+    <button data-bind="click: vm.import">Import</button>
+  </span>
 </div>

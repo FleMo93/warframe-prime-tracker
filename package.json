@@ -5,6 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "serve": "webpack-dev-server",
+    "lint": "eslint src/**",
+    "checkTyping": "tsc --noEmit",
     "build": "bash ./build.sh"
   },
   "author": "",
@@ -16,18 +18,26 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
+    "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-class-properties": "^7.8.3",
-    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-env": "^7.9.6",
     "@babel/preset-typescript": "^7.9.0",
     "@types/knockout": "^3.4.67",
+    "@typescript-eslint/eslint-plugin": "^2.31.0",
+    "@typescript-eslint/parser": "^2.31.0",
     "babel-loader": "^8.1.0",
     "css-loader": "^3.5.3",
+    "eslint": "^6.8.0",
     "html-loader": "^1.1.0",
-    "style-loader": "^1.2.0",
+    "style-loader": "^1.2.1",
     "typescript": "^3.8.3",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  }
+  },
+  "eslintIgnore": [
+    "**/*.css",
+    "**/*.html",
+    "**/*.svg"
+  ]
 }

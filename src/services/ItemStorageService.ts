@@ -1,9 +1,16 @@
+import { TypedEventHandler, TypedEvent } from '../helper/Event';
+
 export class ItemStorageService {
-  private static _storageId: string = 'WarframeItems';
-  storage: Array<string>;
+  private static _storageId = 'WarframeItems';
+  private storage: Array<string>;
+  private _onItemChanged: TypedEvent<void>;
+
+  public onItemChanged: TypedEventHandler<void>;
 
   constructor() {
     const storedValue = window.localStorage.getItem(ItemStorageService._storageId);
+    this._onItemChanged = new TypedEvent();
+    this.onItemChanged = this._onItemChanged;
 
     if (!storedValue) {
       this.storage = [];
@@ -32,8 +39,10 @@ export class ItemStorageService {
     return JSON.stringify(this.storage);
   }
 
-  public import = (storage: string) => {
+  public import = (storage: string): void => {
     this.storage = JSON.parse(storage);
+    this.save();
+    this._onItemChanged.trigger();
   }
 
   private save = (): void => {

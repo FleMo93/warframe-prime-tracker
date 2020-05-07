@@ -7,5 +7,10 @@ export class Obtainable {
   constructor(uniqueId: string, itemStorageService: ItemStorageService) {
     this.obtained = observable(itemStorageService.isObtained(uniqueId));
     this.obtained.subscribe((obtained) => itemStorageService.setObtained(uniqueId, obtained));
+
+    itemStorageService.onItemChanged.on(() => {
+      const obtained = itemStorageService.isObtained(uniqueId);
+      this.obtained(obtained);
+    });
   }
 }

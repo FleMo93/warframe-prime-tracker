@@ -1,9 +1,3 @@
-body {
-  background-color: #2d2d2d;
-  color: #ABB2B9;
-  margin: 0;
-  padding: 8px;
-}
 
 .primeTracker {
   width: 100%;
@@ -12,14 +6,34 @@ body {
   flex-direction: column;
 }
 
-.primeTracker > * {
-  border: 1px solid;
-  border-left-width: 1px;
-  border-top-width: 1px;
-  border-right-width: 1px;
-  border-bottom-width: 0px;
+.primeTracker > .itemListContainer {
+  overflow: hidden;
+  position: relative;
+  flex: 1;
 }
 
-.primeTracker > *:last-child {
-  border-bottom-width: 1px;
+.primeTracker > .itemListContainer > .itemList {
+  overflow-y: scroll;
+  position: absolute;
+  top: 8px;
+  left: 0;
+  bottom: 8px;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.primeTracker > .itemListContainer > .itemList > * {
+  border-top: 1px solid;
+}
+
+.primeTracker > .itemListContainer > .itemList > *:first-child {
+  border-top-width: 0px;
+}
+
+.primeTracker > .footer {
+  padding: 8px;
 }

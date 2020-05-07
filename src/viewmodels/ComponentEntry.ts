@@ -1,4 +1,4 @@
-import { components, pureComputed, observable, observableArray, ObservableArray, PureComputed, ObservableArrayFunctions, Observable } from 'knockout';
+import { components, pureComputed, observable, observableArray, ObservableArrayFunctions } from 'knockout';
 import { Drop } from 'warframe-items';
 import { DropEntry } from './RelicEntry'
 import { Component } from 'src/primeData';

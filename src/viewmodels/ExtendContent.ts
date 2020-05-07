@@ -1,4 +1,4 @@
-import { components, observable, Observable, ObservableFunctions } from 'knockout';
+import { components, observable, ObservableFunctions } from 'knockout';
 
 export interface ExtendContentModel {
   show?: ObservableFunctions<boolean>;
