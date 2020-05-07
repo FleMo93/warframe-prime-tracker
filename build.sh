@@ -1,6 +1,6 @@
 set -e
 
-# npm ci
+npm ci
 rm -rf dist
 mkdir -p dist
 
@@ -20,3 +20,5 @@ sed -i "1i ${HTML_HASH}" dist/index.html
 for filename in ./dist/*.js; do
   sed -i "1i ${JS_HASH}" "$filename"
 done
+
+( cd dist && find . )
