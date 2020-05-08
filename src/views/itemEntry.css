@@ -1,20 +1,27 @@
 .itemEntry {
   padding: 3px;
-  display: flex;
   flex-direction: row;
+  height: fit-content;
+  border: 1px solid;
+  margin: 8px;
+  padding: 4px;
+  min-width: 256px;
+}
+
+.itemEntry > .data {
+  display: flex;
+  flex-direction: column;
 }
 
 .itemEntry>img {
   width: 128px;
   object-fit: contain;
   align-self: start;
-  flex: 0;
-}
-.itemEntry > .data {
-  flex: 1;
+  float: left;
 }
 
-.itemEntry > .data > .headline {
+.itemEntry > .headline {
+  width: 100%;
   display: block;
   font-weight: bold;
 }
