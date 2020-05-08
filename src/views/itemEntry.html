@@ -8,8 +8,8 @@
       <input type="checkbox" data-bind="checked: vm.obtainable" disabled>
     </span>
     <span>
-      <label for="1">Obtained:</label>
-      <input id="1" type="checkbox" data-bind="checked: vm.obtained">
+      <label data-bind="attr: { for: vm.uniqueName() + 'Obtained' }">Obtained:</label>
+      <input type="checkbox" data-bind="checked: vm.obtained, attr: { id: vm.uniqueName() + 'Obtained' }">
     </span>
 
     <extendcontent params="show: vm.showComponents, headline: 'Components'">

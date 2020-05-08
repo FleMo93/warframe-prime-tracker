@@ -25,6 +25,7 @@ export class ItemEntry extends Obtainable {
   public showComponents = observable(false);
   public components: ObservableArray<ComponentEntry> = observableArray();
   public imgUrl = '';
+  public uniqueName = pureComputed({ read: () => this.item.uniqueName });
 
   constructor(item: Item, itemStorageService: ItemStorageService, itemUIService: ItemUIService) {
     super(item.uniqueName, itemStorageService);
